@@ -198,11 +198,6 @@ network_pipeline = AlertGroupingPipeline(
 
 network_groups, stats = network_pipeline.analyze(network_alerts)
 ```
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
 ### Development Setup
 
 ```bash
