@@ -23,7 +23,7 @@ pip install pandas numpy scikit-learn scipy
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/alert-grouping-pipeline.git
+git clone https://github.com/MeteTurhan/alert-grouping-pipeline.git
 cd alert-grouping-pipeline
 ```
 
