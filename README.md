@@ -213,9 +213,6 @@ pytest tests/ --cov=alert_grouping
 ```
 ## Acknowledgments
 
-- Built with [scikit-learn](https://scikit-learn.org/) for machine learning capabilities
-- Uses [pandas](https://pandas.pydata.org/) for efficient data manipulation
-- Inspired by research in security alert correlation and incident response
 
 ## 📚 Citation
 
