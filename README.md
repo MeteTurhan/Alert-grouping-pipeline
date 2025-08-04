@@ -1,15 +1,11 @@
-# Alert-grouping-pipeline
-A pipeline for grouping security alerts based on temporal patterns, content similarity, and IP address relationships. This system helps security analysts by reducing alert fatigue and identifying related security incidents.
 # Alert Grouping Pipeline
-**📄 THIS IS THE README.md FILE - The main repository documentation**
+A baseline pipeline for grouping security alerts based on temporal patterns, content similarity, and IP address relationships. This system helps security analysts by reducing alert fatigue and identifying related security incidents.
 
-A sophisticated machine learning pipeline for intelligently grouping security alerts based on temporal patterns, content similarity, and IP address relationships. This system helps security analysts by reducing alert fatigue and identifying related security incidents.
-
-## 🔍 Overview
+## Overview
 
 The Alert Grouping Pipeline uses advanced clustering techniques to group related security alerts while maintaining strict temporal constraints. It combines multiple similarity metrics including text analysis, IP address patterns, and entropy calculations to create meaningful alert groupings.
 
-## ✨ Key Features
+## Key Features
 
 - **Strict Temporal Grouping**: Enforces maximum time gaps between alerts in the same group
 - **Multi-dimensional Similarity**: Analyzes alert names, hosts, descriptions, and IP addresses
@@ -17,16 +13,6 @@ The Alert Grouping Pipeline uses advanced clustering techniques to group related
 - **Entropy-Based Validation**: Uses information entropy to validate group quality
 - **Memory Efficient**: Handles large datasets with streaming similarity calculations
 - **Configurable Thresholds**: Adjustable parameters for different use cases
-
-## 🛠️ Installation
-
-### Prerequisites
-
-- Python 3.7+
-- pandas
-- numpy
-- scikit-learn
-- scipy
 
 ### Install Dependencies
 
@@ -41,7 +27,7 @@ git clone https://github.com/yourusername/alert-grouping-pipeline.git
 cd alert-grouping-pipeline
 ```
 
-## 📊 Usage
+## Usage
 
 ### Basic Usage
 
@@ -53,13 +39,7 @@ import pandas as pd
 alerts_df = pd.read_csv('your_alerts.csv')
 
 # Initialize the pipeline
-pipeline = AlertGroupingPipeline(
-    max_time_gap=5,          # Maximum 5 seconds between alerts in same group
-    cohesion_threshold=0.3,   # Minimum similarity threshold
-    entropy_threshold=1.35,   # Maximum entropy allowed in groups
-    ip_weight=0.3,           # Weight for IP similarity in calculations
-    consider_subnets=True     # Consider subnet relationships
-)
+pipeline = AlertGroupingPipeline()
 
 # Run the analysis
 grouped_df, validity_results = pipeline.analyze(alerts_df)
@@ -74,18 +54,16 @@ print(validity_results.head())
 ```python
 # Custom configuration for high-volume environments
 pipeline = AlertGroupingPipeline(
-    max_time_gap=10,         # Allow longer time gaps
-    cohesion_threshold=0.2,   # Lower similarity requirements
-    entropy_threshold=2.0,    # Allow more diverse groups
-    ip_weight=0.5,           # Higher emphasis on IP patterns
+    max_time_gap=10,
+    cohesion_threshold=0.2,
+    entropy_threshold=2.0,
+    ip_weight=0.5,
     consider_subnets=True
 )
 
-# Process large datasets efficiently
-grouped_df, validity_results = pipeline.analyze(large_alerts_df)
 ```
 
-## 📋 Data Format
+## Data Format
 
 Your input DataFrame should contain the following columns:
 
@@ -107,7 +85,7 @@ time,name,host,short,ip,time_label
 1640995300,port_scan,firewall,Port scan from external IP,10.0.0.50,suspicious
 ```
 
-## 🧮 Algorithm Details
+## Algorithm Details
 
 ### 1. Temporal Grouping
 - Groups alerts with time gaps ≤ `max_time_gap` seconds
@@ -134,7 +112,7 @@ time,name,host,short,ip,time_label
 - Weighted combination of text and IP similarities
 - Configurable weights for different alert attributes
 
-## 🔧 Configuration Parameters
+## Configuration Parameters
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
@@ -144,7 +122,7 @@ time,name,host,short,ip,time_label
 | `ip_weight` | 0.3 | Weight for IP similarity (0.0-1.0) |
 | `consider_subnets` | True | Whether to consider subnet relationships |
 
-## 📈 Performance
+## Performance
 
 ### Benchmarks
 
@@ -159,7 +137,7 @@ time,name,host,short,ip,time_label
 - Automatic sampling for datasets > 10K alerts
 - Configurable chunk sizes for processing large groups
 
-## 🧪 Testing
+## Testing
 
 Run the test suite:
 
@@ -173,7 +151,7 @@ Run specific tests:
 python -m pytest tests/test_grouping.py -v
 ```
 
-## 📝 Output Format
+## Output Format
 
 The pipeline returns two main outputs:
 
@@ -192,7 +170,7 @@ Statistics for each group:
 - `time_span`: Total time span of group
 - `entropy_score`: Information entropy of group
 
-## 🔍 Examples
+## Examples
 
 ### Example 1: Security Incident Detection
 
@@ -221,7 +199,7 @@ network_pipeline = AlertGroupingPipeline(
 network_groups, stats = network_pipeline.analyze(network_alerts)
 ```
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
@@ -238,12 +216,7 @@ pip install -r requirements-dev.txt
 ```bash
 pytest tests/ --cov=alert_grouping
 ```
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with [scikit-learn](https://scikit-learn.org/) for machine learning capabilities
 - Uses [pandas](https://pandas.pydata.org/) for efficient data manipulation
@@ -255,28 +228,9 @@ If you use this project in your research, please cite:
 
 ```bibtex
 @software{alert_grouping_pipeline,
-  title={Alert Grouping Pipeline: Intelligent Security Alert Clustering},
-  author={Your Name},
-  year={2024},
-  url={https://github.com/yourusername/alert-grouping-pipeline}
+  title={Alert Grouping Pipeline},
+  author={Mete Turhan},
+  year={2025},
+  url={https://github.com/MeteTurhan/alert-grouping-pipeline}
 }
 ```
-
-## 🐛 Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/alert-grouping-pipeline/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/alert-grouping-pipeline/discussions)
-- **Documentation**: [Wiki](https://github.com/yourusername/alert-grouping-pipeline/wiki)
-
-## 🗺️ Roadmap
-
-- [ ] Support for additional similarity metrics
-- [ ] Real-time streaming alert processing
-- [ ] Integration with popular SIEM platforms
-- [ ] Advanced visualization dashboard
-- [ ] Machine learning model for parameter optimization
-- [ ] Support for graph-based clustering algorithms
-
----
-
-**Made with ❤️ for the cybersecurity community**
