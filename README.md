@@ -156,12 +156,9 @@ Statistics for each group:
 - `time_span`: Total time span of group
 - `entropy_score`: Information entropy of group
 ## Acknowledgments
-## 📚 Acknowledgments
 This project was inspired by and builds upon the [AIT Alert Data Set](https://github.com/ait-aecid/alert-data-set). I highly recommend it for further analysis, experimentation, and improvement.
-## 📚 Citation
-
+## Citation
 If you use this project in your research, please cite:
-
 ```bibtex
 @software{alert_grouping_pipeline,
   title={Alert Grouping Pipeline},
