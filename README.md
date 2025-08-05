@@ -137,20 +137,6 @@ time,name,host,short,ip,time_label
 - Automatic sampling for datasets > 10K alerts
 - Configurable chunk sizes for processing large groups
 
-## Testing
-
-Run the test suite:
-
-```bash
-python -m pytest tests/
-```
-
-Run specific tests:
-
-```bash
-python -m pytest tests/test_grouping.py -v
-```
-
 ## Output Format
 
 The pipeline returns two main outputs:
@@ -169,51 +155,9 @@ Statistics for each group:
 - `max_time_gap`: Largest time gap in group
 - `time_span`: Total time span of group
 - `entropy_score`: Information entropy of group
-
-## Examples
-
-### Example 1: Security Incident Detection
-
-```python
-# Configure for incident detection
-incident_pipeline = AlertGroupingPipeline(
-    max_time_gap=30,        # 30-second window for incidents
-    cohesion_threshold=0.4,  # High similarity requirement
-    ip_weight=0.4           # Emphasize IP relationships
-)
-
-incidents, stats = incident_pipeline.analyze(security_alerts)
-print(f"Detected {incidents['timely_alert_group'].nunique()} potential incidents")
-```
-
-### Example 2: Network Monitoring
-
-```python
-# Configure for network monitoring
-network_pipeline = AlertGroupingPipeline(
-    max_time_gap=60,        # 1-minute grouping window
-    consider_subnets=True,   # Group by network segments
-    ip_weight=0.6           # Heavy emphasis on network topology
-)
-
-network_groups, stats = network_pipeline.analyze(network_alerts)
-```
-### Development Setup
-
-```bash
-git clone https://github.com/yourusername/alert-grouping-pipeline.git
-cd alert-grouping-pipeline
-pip install -r requirements-dev.txt
-```
-
-### Running Tests
-
-```bash
-pytest tests/ --cov=alert_grouping
-```
 ## Acknowledgments
-
-
+## 📚 Acknowledgments
+This project was inspired by and builds upon the [AIT Alert Data Set](https://github.com/ait-aecid/alert-data-set). I highly recommend it for further analysis, experimentation, and improvement.
 ## 📚 Citation
 
 If you use this project in your research, please cite:
