@@ -49,6 +49,19 @@ print(f"Grouped {len(alerts_df)} alerts into {grouped_df['timely_alert_group'].n
 print(validity_results.head())
 ```
 
+```
+# Write output to datasets
+grouped_df.to_csv(
+    'your_alerts_grouped.csv',
+    index=False
+)
+
+validity_results.to_csv(
+    'your_alerts_group_validity.csv',
+    index=False
+)
+```
+
 ### Advanced Configuration
 
 ```python
