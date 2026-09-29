@@ -121,6 +121,7 @@ time,name,host,short,ip,time_label
 | `entropy_threshold` | 1.35 | Maximum entropy allowed in groups |
 | `ip_weight` | 0.3 | Weight for IP similarity (0.0-1.0) |
 | `consider_subnets` | True | Whether to consider subnet relationships |
+| `time_label` | None | Dataframe column useable as an input if available, to identify and exclude alerts labeled as false_positive during preprocessing  |
 
 ## Performance
 
