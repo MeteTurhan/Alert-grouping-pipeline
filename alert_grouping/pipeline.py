@@ -1,3 +1,9 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+import pandas as pd
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+from scipy.stats import entropy
+
 class AlertGroupingPipeline:
     def __init__(self, max_time_gap=5, cohesion_threshold=0.3, entropy_threshold=1.35, 
                  ip_weight=0.3, consider_subnets=True):
