@@ -58,7 +58,8 @@ pipeline = AlertGroupingPipeline(
     cohesion_threshold=0.2,
     entropy_threshold=2.0,
     ip_weight=0.5,
-    consider_subnets=True
+    consider_subnets=True,
+    time_label=None
 )
 
 ```
